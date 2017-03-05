@@ -15,6 +15,7 @@
 		3A8EB1941E67ACFB00E9A4FE /* tippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8EB1931E67ACFB00E9A4FE /* tippyTests.swift */; };
 		3A8EB19F1E67ACFB00E9A4FE /* tippyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8EB19E1E67ACFB00E9A4FE /* tippyUITests.swift */; };
 		3A8EB1AD1E6A0C3400E9A4FE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8EB1AC1E6A0C3400E9A4FE /* SettingsViewController.swift */; };
+		3AF479471E6C927100C36851 /* ATypewriterForMe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AF479461E6C927100C36851 /* ATypewriterForMe.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3A8EB19E1E67ACFB00E9A4FE /* tippyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tippyUITests.swift; sourceTree = "<group>"; };
 		3A8EB1A01E67ACFB00E9A4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A8EB1AC1E6A0C3400E9A4FE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3AF479461E6C927100C36851 /* ATypewriterForMe.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ATypewriterForMe.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		3A8EB1721E67ACFB00E9A4FE = {
 			isa = PBXGroup;
 			children = (
+				3AF479461E6C927100C36851 /* ATypewriterForMe.ttf */,
 				3A8EB17D1E67ACFB00E9A4FE /* tippy */,
 				3A8EB1921E67ACFB00E9A4FE /* tippyTests */,
 				3A8EB19D1E67ACFB00E9A4FE /* tippyUITests */,
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF479471E6C927100C36851 /* ATypewriterForMe.ttf in Resources */,
 				3A8EB1891E67ACFB00E9A4FE /* LaunchScreen.storyboard in Resources */,
 				3A8EB1861E67ACFB00E9A4FE /* Assets.xcassets in Resources */,
 				3A8EB1841E67ACFB00E9A4FE /* Main.storyboard in Resources */,
@@ -516,6 +520,7 @@
 				3A8EB1A51E67ACFB00E9A4FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A8EB1A61E67ACFB00E9A4FE /* Build configuration list for PBXNativeTarget "tippyTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +529,7 @@
 				3A8EB1A81E67ACFB00E9A4FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A8EB1A91E67ACFB00E9A4FE /* Build configuration list for PBXNativeTarget "tippyUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +538,7 @@
 				3A8EB1AB1E67ACFB00E9A4FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

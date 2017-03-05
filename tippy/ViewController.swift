@@ -26,6 +26,13 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         let intValue = defaults.integer(forKey: "defaultTipIndex")
         tipControl.selectedSegmentIndex = intValue
+
+        print("bfore here")
+
+        if let font = UIFont(name: "ATypewriterForMe.ttf", size: 34) {
+            print("got here")
+            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font]
+        }
     }
     
     override func didReceiveMemoryWarning() {
