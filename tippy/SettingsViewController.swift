@@ -12,6 +12,8 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var defaultTipControl: UISegmentedControl!
     
+    @IBOutlet weak var darkThemeSwitch: UISwitch!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,8 +22,22 @@ class SettingsViewController: UIViewController {
         let defaults = UserDefaults.standard
         let intValue = defaults.integer(forKey: "defaultTipIndex")
         defaultTipControl.selectedSegmentIndex = intValue
+        darkThemeSwitch.setOn(defaults.bool(forKey: "darkTheme"), animated: false)
+    }
+
+    @IBAction func onDarkThemeChanged(_ sender: Any) {
+        let defaults = UserDefaults.standard
+
+        if darkThemeSwitch.isOn {
+            defaults.set(true, forKey: "darkTheme")
+        } else {
+           defaults.set(false, forKey: "darkTheme")
+        }
+
+        defaults.synchronize()
     }
     
+
     @IBAction func onDefaultTipChanged(_ sender: Any) {
         
         let defaultTipIndex = defaultTipControl.selectedSegmentIndex

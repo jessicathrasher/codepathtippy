@@ -56,10 +56,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="bwE-Uk-yYL">
-                                <rect key="frame" x="170" y="85" width="189" height="30"/>
+                                <rect key="frame" x="215" y="85" width="144" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="editingChanged" id="X53-a8-M2w"/>
@@ -87,9 +87,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.73648222124395912" green="0.85942966534448961" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="uoF-Dq-s2N" appends="YES" id="aql-eJ-u2H"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="Lie-Rr-NMv">
                         <barButtonItem key="rightBarButtonItem" image="settings_btn" id="xv1-C0-ZmR">
@@ -100,17 +97,16 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billField" destination="bwE-Uk-yYL" id="Ks5-Kb-wKC"/>
+                        <outlet property="billNameLabel" destination="O7Q-hf-8Zf" id="Tj4-Vn-TXE"/>
+                        <outlet property="mainView" destination="8bC-Xf-vdC" id="ERA-pG-EXg"/>
                         <outlet property="tipControl" destination="JQq-kI-ejB" id="IFK-81-rmF"/>
                         <outlet property="tipLabel" destination="dLZ-xz-CHK" id="cqq-cT-9r3"/>
+                        <outlet property="tipNameLabel" destination="bXe-G0-Hhb" id="lHR-fd-JkJ"/>
                         <outlet property="totalLabel" destination="Awl-V9-E4d" id="kgd-9m-Msk"/>
+                        <outlet property="totalNameLabel" destination="0dZ-3Q-UKE" id="BnG-X4-dPd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="uoF-Dq-s2N">
-                    <connections>
-                        <action selector="onTap:" destination="BYZ-38-t0r" id="fny-bC-Zzp"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="574.5" y="136.5"/>
         </scene>
@@ -141,11 +137,26 @@
                                     <action selector="onDefaultTipChanged:" destination="vUZ-Ds-MF9" eventType="valueChanged" id="dj1-0N-zCr"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dark theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oMg-6T-GLh">
+                                <rect key="frame" x="16" y="181" width="240" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="vq0-Sz-Ox5">
+                                <rect key="frame" x="310" y="188" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onDarkThemeChanged:" destination="vUZ-Ds-MF9" eventType="valueChanged" id="s8E-8m-SEb"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.73648222119999995" green="0.85942966529999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="NwL-3h-IHk"/>
                     <connections>
+                        <outlet property="darkThemeSwitch" destination="vq0-Sz-Ox5" id="20K-vN-cAh"/>
                         <outlet property="defaultTipControl" destination="VJV-e6-l7y" id="NOs-34-g6p"/>
                     </connections>
                 </viewController>

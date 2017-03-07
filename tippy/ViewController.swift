@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var tipLabel: UILabel!
-    
     @IBOutlet weak var totalLabel: UILabel!
-    
     @IBOutlet weak var billField: UITextField!
-    
+    @IBOutlet weak var tipNameLabel: UILabel!
+    @IBOutlet weak var totalNameLabel: UILabel!
+    @IBOutlet weak var billNameLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
     override func viewDidLoad() {
@@ -27,12 +28,32 @@ class ViewController: UIViewController {
         let intValue = defaults.integer(forKey: "defaultTipIndex")
         tipControl.selectedSegmentIndex = intValue
 
-        print("bfore here")
+        let darkTheme = defaults.bool(forKey: "darkTheme")
 
-        if let font = UIFont(name: "ATypewriterForMe.ttf", size: 34) {
-            print("got here")
-            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font]
+        let tippyBlue = UIColor(red: 188/255, green: 219/255, blue: 1, alpha: 1)
+
+        if darkTheme {
+            tipNameLabel.textColor = tippyBlue
+            billNameLabel.textColor = tippyBlue
+            totalNameLabel.textColor = tippyBlue
+            tipLabel.textColor = tippyBlue
+            totalLabel.textColor = tippyBlue
+            tipControl.backgroundColor = UIColor.darkGray
+            tipControl.tintColor = tippyBlue
+            self.view.backgroundColor = UIColor.black
+            self.navigationController?.navigationBar.backgroundColor = UIColor.black
+        } else {
+            tipNameLabel.textColor = UIColor.black
+            billNameLabel.textColor = UIColor.black
+            totalNameLabel.textColor = UIColor.black
+            tipLabel.textColor = UIColor.black
+            totalLabel.textColor = UIColor.black
+            tipControl.backgroundColor = tippyBlue
+            self.view.backgroundColor = tippyBlue
+            self.navigationController?.navigationBar.backgroundColor = UIColor.lightGray
         }
+
+        billField.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,10 +61,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onTap(_ sender: Any) {
-        
-        view.endEditing(true)
-    }
+    // Don't end editing - keyboard will always appear
+//    @IBAction func onTap(_ sender: Any) {
+//        view.endEditing(true)
+//    }
 
     @IBAction func valueChanged(_ sender: Any) {
         calculateTip(sender)
