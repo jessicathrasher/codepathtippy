@@ -49,6 +49,7 @@ class ViewController: UIViewController {
             tipLabel.textColor = UIColor.black
             totalLabel.textColor = UIColor.black
             tipControl.backgroundColor = tippyBlue
+            tipControl.tintColor = UIColor.darkGray
             self.view.backgroundColor = tippyBlue
             self.navigationController?.navigationBar.backgroundColor = UIColor.lightGray
         }
