@@ -23,6 +23,9 @@ class SettingsViewController: UIViewController {
         let intValue = defaults.integer(forKey: "defaultTipIndex")
         defaultTipControl.selectedSegmentIndex = intValue
         darkThemeSwitch.setOn(defaults.bool(forKey: "darkTheme"), animated: false)
+        
+        let tippyBlue = UIColor(red: 188/255, green: 219/255, blue: 1, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = tippyBlue
     }
 
     @IBAction func onDarkThemeChanged(_ sender: Any) {

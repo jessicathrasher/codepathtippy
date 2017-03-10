@@ -22,34 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dLZ-xz-CHK">
-                                <rect key="frame" x="215" y="210" width="144" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bXe-G0-Hhb">
-                                <rect key="frame" x="16" y="210" width="101" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bill" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O7Q-hf-8Zf">
                                 <rect key="frame" x="16" y="90" width="109" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" misplaced="YES" id="jvS-S2-ced">
-                                <rect key="frame" x="16" y="269" width="343" height="6"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.3782122461928934" green="0.3782122461928934" blue="0.3782122461928934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Awl-V9-E4d">
-                                <rect key="frame" x="215" y="323" width="144" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -65,8 +39,48 @@
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="editingChanged" id="X53-a8-M2w"/>
                                 </connections>
                             </textField>
+                            <view contentMode="scaleToFill" misplaced="YES" id="For-Ec-r5s">
+                                <rect key="frame" x="0.0" y="139" width="375" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bXe-G0-Hhb">
+                                        <rect key="frame" x="16" y="37" width="101" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" misplaced="YES" id="jvS-S2-ced">
+                                        <rect key="frame" x="16" y="92" width="343" height="6"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.3782122461928934" green="0.3782122461928934" blue="0.3782122461928934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Awl-V9-E4d">
+                                        <rect key="frame" x="215" y="153" width="144" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0dZ-3Q-UKE">
+                                        <rect key="frame" x="16" y="153" width="101" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dLZ-xz-CHK">
+                                        <rect key="frame" x="215" y="37" width="144" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="JQq-kI-ejB">
-                                <rect key="frame" x="16" y="372" width="343" height="29"/>
+                                <rect key="frame" x="16" y="363" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="18%"/>
@@ -77,13 +91,6 @@
                                     <action selector="valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="5b4-v8-2Ft"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0dZ-3Q-UKE">
-                                <rect key="frame" x="16" y="323" width="101" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ATypewriterForMe" family="ATypewriterForMe" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.73648222124395912" green="0.85942966534448961" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -99,6 +106,7 @@
                         <outlet property="billField" destination="bwE-Uk-yYL" id="Ks5-Kb-wKC"/>
                         <outlet property="billNameLabel" destination="O7Q-hf-8Zf" id="Tj4-Vn-TXE"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="ERA-pG-EXg"/>
+                        <outlet property="resultsView" destination="For-Ec-r5s" id="ba9-lI-nxh"/>
                         <outlet property="tipControl" destination="JQq-kI-ejB" id="IFK-81-rmF"/>
                         <outlet property="tipLabel" destination="dLZ-xz-CHK" id="cqq-cT-9r3"/>
                         <outlet property="tipNameLabel" destination="bXe-G0-Hhb" id="lHR-fd-JkJ"/>

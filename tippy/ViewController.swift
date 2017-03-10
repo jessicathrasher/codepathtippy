@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var mainView: UIView!
+    @IBOutlet weak var resultsView: UIView!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
@@ -32,6 +33,14 @@ class ViewController: UIViewController {
 
         let tippyBlue = UIColor(red: 188/255, green: 219/255, blue: 1, alpha: 1)
 
+//        print("THING \(Double(tipLabel.text!) ?? 0)")
+//        
+//        let localizedTip = NumberFormatter.localizedString(from: NSNumber(value: Double(tipLabel.text!) ?? 0), number: .currency)
+//        let localizedTotal = NumberFormatter.localizedString(from: NSNumber(value: Double(totalLabel.text!) ?? 0), number: .currency)
+//        
+//        tipLabel.text = localizedTip
+//        totalLabel.text = localizedTotal
+        
         if darkTheme {
             tipNameLabel.textColor = tippyBlue
             billNameLabel.textColor = tippyBlue
@@ -39,9 +48,15 @@ class ViewController: UIViewController {
             tipLabel.textColor = tippyBlue
             totalLabel.textColor = tippyBlue
             tipControl.backgroundColor = UIColor.darkGray
+            self.resultsView.backgroundColor = UIColor.black
             tipControl.tintColor = tippyBlue
             self.view.backgroundColor = UIColor.black
-            self.navigationController?.navigationBar.backgroundColor = UIColor.black
+            navigationController?.navigationBar.titleTextAttributes = [
+                NSForegroundColorAttributeName : tippyBlue,
+                NSFontAttributeName : UIFont(name: "ATypewriterForMe", size: 26)!
+            ]
+            self.navigationController?.navigationBar.barTintColor = UIColor.black
+
         } else {
             tipNameLabel.textColor = UIColor.black
             billNameLabel.textColor = UIColor.black
@@ -51,10 +66,17 @@ class ViewController: UIViewController {
             tipControl.backgroundColor = tippyBlue
             tipControl.tintColor = UIColor.darkGray
             self.view.backgroundColor = tippyBlue
-            self.navigationController?.navigationBar.backgroundColor = UIColor.lightGray
+            self.resultsView.backgroundColor = tippyBlue
+            navigationController?.navigationBar.titleTextAttributes = [
+                NSForegroundColorAttributeName : UIColor.black,
+                NSFontAttributeName : UIFont(name: "ATypewriterForMe", size: 26)!
+            ]
+            self.navigationController?.navigationBar.barTintColor = tippyBlue
+
         }
 
         billField.becomeFirstResponder()
+        calculateTip()
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,16 +94,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateTip(_ sender: Any) {
-        
+        calculateTip()
+    }
+    
+    func calculateTip() {
         let tipPercentages = [0.18, 0.20, 0.25]
         
         let bill = Double(billField.text!) ?? 0
+        
+        if bill == 0 {
+            self.resultsView.alpha = 0
+        } else {
+            UIView.animate(withDuration: 0.4, animations: {
+                // This causes first view to fade in and second view to fade out
+                self.resultsView.alpha = 1
+            })
+        }
+        
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        let localizedTip = NumberFormatter.localizedString(from: NSNumber(value: tip), number: .currency)
         
+        let localizedTotal = NumberFormatter.localizedString(from: NSNumber(value: total), number: .currency)
+        
+        tipLabel.text = localizedTip
+        totalLabel.text = localizedTotal
     }
 }
 
