@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TipViewController.swift
 //  tippy
 //
 //  Created by Jessica Thrasher on 3/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TipViewController: UIViewController {
 
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var resultsView: UIView!
@@ -22,24 +22,37 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Call rememberLastBill() when app enters foreground
+        NotificationCenter.default.addObserver(self, selector:#selector(TipViewController.rememberLastBill), name:
+            NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("view will disappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("view did disappear")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        print("view will appear")
+
         let defaults = UserDefaults.standard
         let intValue = defaults.integer(forKey: "defaultTipIndex")
         tipControl.selectedSegmentIndex = intValue
-
+        
         let darkTheme = defaults.bool(forKey: "darkTheme")
 
         let tippyBlue = UIColor(red: 188/255, green: 219/255, blue: 1, alpha: 1)
-
-//        print("THING \(Double(tipLabel.text!) ?? 0)")
-//        
-//        let localizedTip = NumberFormatter.localizedString(from: NSNumber(value: Double(tipLabel.text!) ?? 0), number: .currency)
-//        let localizedTotal = NumberFormatter.localizedString(from: NSNumber(value: Double(totalLabel.text!) ?? 0), number: .currency)
-//        
-//        tipLabel.text = localizedTip
-//        totalLabel.text = localizedTotal
         
         if darkTheme {
             tipNameLabel.textColor = tippyBlue
@@ -78,11 +91,6 @@ class ViewController: UIViewController {
         billField.becomeFirstResponder()
         calculateTip()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // Don't end editing - keyboard will always appear
 //    @IBAction func onTap(_ sender: Any) {
@@ -97,13 +105,34 @@ class ViewController: UIViewController {
         calculateTip()
     }
     
+    func rememberLastBill() {
+        let defaults = UserDefaults.standard
+        
+        if let lastCalcuatedDate = defaults.object(forKey: "lastCalcuatedDate") as? Date {
+            print("DATE IS \(Date().timeIntervalSince(lastCalcuatedDate))")
+            
+            if Date().timeIntervalSince(lastCalcuatedDate) < 600 {
+                billField.text = defaults.string(forKey: "billAmount")
+                calculateTip()
+            } else {
+                billField.text = ""
+                calculateTip()
+            }
+        } else {
+            print("Couldn't get lastCalculatedDate from defaults")
+        }
+    }
+    
     func calculateTip() {
         let tipPercentages = [0.18, 0.20, 0.25]
         
         let bill = Double(billField.text!) ?? 0
         
         if bill == 0 {
-            self.resultsView.alpha = 0
+            UIView.animate(withDuration: 0.4, animations: {
+                // This causes first view to fade in and second view to fade out
+                self.resultsView.alpha = 0
+            })
         } else {
             UIView.animate(withDuration: 0.4, animations: {
                 // This causes first view to fade in and second view to fade out
@@ -120,6 +149,11 @@ class ViewController: UIViewController {
         
         tipLabel.text = localizedTip
         totalLabel.text = localizedTotal
+        
+        let defaults = UserDefaults.standard
+        defaults.set(bill, forKey: "billAmount")
+        defaults.set(Date(), forKey: "lastCalcuatedDate")
+        defaults.synchronize()
     }
 }
 
